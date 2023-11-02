@@ -20,6 +20,24 @@ const Boutique = () => {
 
     const isotope = useRef(null);
 
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(1000);
+
+    const handleMinPriceChange = e => setMinPrice(e.target.value);
+    const handleMaxPriceChange = e => setMaxPrice(e.target.value);
+
+    const handlePriceFilter = () => {
+        if (isotope.current) {
+            isotope.current.arrange({
+                filter: function (itemElem) {
+                    const productPrice = parseFloat(itemElem.getAttribute('data-price'));
+                    return productPrice >= minPrice && productPrice <= maxPrice;
+                },
+            });
+        }
+    };
+
+
     useEffect(() => {
         axios.get('https://eisee-it.o3creative.fr/2023/groupe4/wp-json/wc/v3/products/categories', {
             auth: {
@@ -83,18 +101,27 @@ const Boutique = () => {
             <Cart />
             <h1>Boutique</h1>
 
-            <div>
+            <div className="filter-buttons">
                 <button onClick={handleFilterKeyChange('*')}>Tous</button>
                 {categories.map(category => (
                     <button key={category.id} onClick={handleFilterKeyChange(`category-${category.id}`)}>
                         {category.name}
                     </button>
                 ))}
+                <div className='price-filter'>
+                    <input type='number' value={minPrice} onChange={handleMinPriceChange} />
+                    <input type='number' value={maxPrice} onChange={handleMaxPriceChange} />
+                    <button onClick={handlePriceFilter}>Filtrer par prix</button>
+                </div>
             </div>
 
             <div className="grid-container">
                 {products.map(product => (
-                    <div key={product.id} className={`grid-item ${product.categories.map(cat => `category-${cat.id}`).join(' ')}`}>
+                    <div
+                        key={product.id}
+                        className={`grid-item ${product.categories.map(cat => `category-${cat.id}`).join(' ')}`}
+                        data-price={parseFloat(product.price) || 0} // Utilise 0 si le prix n'est pas valide
+                    >
                         <Link to={`/produit?id=${product.id}`}>
                             <h2>{product.name}</h2>
                             <img src={product.images[0].woocommerce_thumbnail} alt={product.images[0].alt} />
