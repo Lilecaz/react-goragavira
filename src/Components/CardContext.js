@@ -18,7 +18,8 @@ export const CartProvider = ({ children }) => {
         }
     };
     const removeFromCart = (productToRemove) => {
-        setCart(cart.filter(product => product.id !== productToRemove.id));
+        const updatedCart =cart.filter(product => product.id !== productToRemove.id)
+        setCart(updatedCart );
     };
 
     return (
