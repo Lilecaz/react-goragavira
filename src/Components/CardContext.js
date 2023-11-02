@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -6,6 +6,14 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [notification, setNotification] = useState(null);
   const [isInCart, setIsInCart] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
@@ -29,7 +37,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, notification, isInCart }}
+      value={{ cart, addToCart, removeFromCart, notification, isInCart, isLoggedIn, setIsLoggedIn }}
     >
       {children}
     </CartContext.Provider>
