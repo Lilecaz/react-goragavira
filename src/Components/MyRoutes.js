@@ -7,9 +7,7 @@ import Produit from './Produit';
 import Panier from './Panier';
 
 import Commande from './Commande';
-
 import Login from './Login';
-
 
 function MyRoutes() {
     return (

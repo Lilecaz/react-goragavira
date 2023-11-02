@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
     }
@@ -34,10 +34,22 @@ export const CartProvider = ({ children }) => {
     );
     setCart(updatedCart);
   };
+  const clearCart = () => {
+    setCart([]);
+  };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, notification, isInCart, isLoggedIn, setIsLoggedIn }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        notification,
+        isInCart,
+        isLoggedIn,
+        setIsLoggedIn,
+        clearCart
+      }}
     >
       {children}
     </CartContext.Provider>
