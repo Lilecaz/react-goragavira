@@ -7,11 +7,16 @@ export const CartProvider = ({ children }) => {
     const [notification, setNotification] = useState(null);
 
     const addToCart = (product) => {
-        setCart([...cart, product]);
-        setNotification(`Le produit : ${product.name} a été ajouté au panier`);
-        setTimeout(() => setNotification(null), 2000); // Dismiss notification after 2 seconds
+        const existingProduct = cart.find(item => item.id === product.id);
+        if (existingProduct) {
+            setNotification(`Le produit : ${product.name} est déjà dans le panier`);
+            setTimeout(() => setNotification(null), 2000);
+        } else {
+            setCart([...cart, product]);
+            setNotification(`Le produit : ${product.name} a été ajouté au panier`);
+            setTimeout(() => setNotification(null), 2000);
+        }
     };
-
     const removeFromCart = (productToRemove) => {
         setCart(cart.filter(product => product.id !== productToRemove.id));
     };
