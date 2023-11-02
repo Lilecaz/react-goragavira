@@ -16,7 +16,7 @@ const Boutique = () => {
     const [filterKey, setFilterKey] = useState('*');
 
     const { addToCart } = useContext(CartContext);
-    const { notification } = useContext(CartContext);
+    const { notification, isInCart } = useContext(CartContext);
 
     const isotope = useRef(null);
 
@@ -79,7 +79,7 @@ const Boutique = () => {
 
     return (
         <div>
-            {notification && <div className="notification">{notification}</div>}
+            {notification && <div className={isInCart ? 'notification error' : 'notification'}>{notification}</div>}
             <Cart />
             <h1>Boutique</h1>
 

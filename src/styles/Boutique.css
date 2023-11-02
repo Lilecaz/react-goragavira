@@ -76,6 +76,7 @@ button:hover {
 }
 
 .notification {
+    z-index: 999;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -83,6 +84,10 @@ button:hover {
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
+}
+
+.error {
+    background-color: #dc3545;
 }
 
 .centered {
