@@ -4,6 +4,7 @@ import Accueil from './Accueil';
 import Boutique from './Boutique';
 import Produit from './Produit';
 import Panier from './Panier';
+import Commande from './Commande';
 
 function MyRoutes() {
     return (
@@ -12,6 +13,7 @@ function MyRoutes() {
             <Route path="/boutique" element={<Boutique />} />
             <Route path="/produit" element={<Produit />} />
             <Route path="/panier" element={<Panier />} />
+            <Route path="/commande" element={<Commande />} />
         </Routes>
     );
 }

@@ -1,0 +1,62 @@
+.commande {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.commande:hover {
+  transform: scale(1.05);
+}
+
+.commande h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.commande p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.commande ul {
+  list-style: none;
+  padding: 0;
+}
+
+.commande li {
+  font-size: 16px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commande button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.commande button:hover {
+  background-color: #c0392b;
+}
+
+/* Ajoutez d'autres styles CSS selon vos besoins */
+
+/* Par exemple, pour le bouton "Vider le panier" */
+.commande button:nth-last-child(1) {
+  background-color: #3498db;
+}
+
+.commande button:nth-last-child(1):hover {
+  background-color: #2980b9;
+}
