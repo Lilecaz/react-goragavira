@@ -28,7 +28,8 @@ const Commande = () => {
             )}{" "}
             €
           </p>
-          <button onClick={clearCart}>Vider le panier</button>
+          <button onClick={clearCart}>Vider le panier</button>{" "}
+          <button>Valider la commande</button>
         </div>
       )}
     </div>
