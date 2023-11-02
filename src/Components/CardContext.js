@@ -5,16 +5,19 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [notification, setNotification] = useState(null);
+  const [isInCart, setIsInCart] = useState(false);
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
       setNotification(`Le produit : ${product.name} est déjà dans le panier`);
-      setTimeout(() => setNotification(null), 2000);
+      setIsInCart(true);
+      setTimeout(() => setNotification(null), 5000);
     } else {
       setCart([...cart, product]);
       setNotification(`Le produit : ${product.name} a été ajouté au panier`);
-      setTimeout(() => setNotification(null), 2000);
+      setIsInCart(false);
+      setTimeout(() => setNotification(null), 5000);
     }
   };
   const removeFromCart = (productToRemove) => {
@@ -26,7 +29,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, notification }}
+      value={{ cart, addToCart, removeFromCart, notification, isInCart }}
     >
       {children}
     </CartContext.Provider>
