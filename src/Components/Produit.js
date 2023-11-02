@@ -3,11 +3,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import '../styles/Produit.css'
+
+import { useContext } from 'react';
+import { CartContext } from './CardContext';
 
 
 const Produit = () => {
+    const { addToCart } = useContext(CartContext);
+    const { notification } = useContext(CartContext);
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     const [produit, setProduit] = useState(null);
@@ -58,11 +63,13 @@ const Produit = () => {
 
     return (
         <div >
+            {notification && <div className="notification">{notification}</div>}
             <div style={{ display: 'flex' }} className='product-des'>
                 <div style={{ flex: 1 }}>
                     <h1>{produit.name}</h1>
                     <div dangerouslySetInnerHTML={{ __html: produit.description }}></div>
                     {produit.stock_status === "instock" ? <p>Prix : {produit.price} €</p> : <p><b>Rupture de stock</b></p>}
+                    <button onClick={() => addToCart(produit)}> Ajouter au panier <FontAwesomeIcon icon={faShoppingCart} className='cart-icon' /></button>
                 </div>
 
                 <Carousel images={produit.images} />
