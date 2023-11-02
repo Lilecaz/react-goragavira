@@ -42,6 +42,9 @@ function Panier() {
       <div className="total">
         <h2>Total : {total.toFixed(2)} €</h2>
       </div>
+      <Link to="/commande">
+        <button>Aller à la commande</button>
+      </Link>
     </div>
   );
 }
