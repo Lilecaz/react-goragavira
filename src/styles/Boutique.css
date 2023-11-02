@@ -98,3 +98,14 @@ button:hover {
 .fa-spinner {
     font-size: 3rem;
 }
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.filter-buttons button {
+    background-color: darksalmon;
+}
