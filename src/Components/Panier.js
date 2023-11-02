@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 function Panier() {
   const { cart, removeFromCart } = useContext(CartContext);
 
+  const total = cart.reduce((sum, product) => sum + parseFloat(product.price), 0);
+
   if (cart.length === 0) {
     return (
       <div className="Panier">
@@ -36,6 +38,9 @@ function Panier() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="total">
+        <h2>Total : {total.toFixed(2)} €</h2>
       </div>
     </div>
   );
