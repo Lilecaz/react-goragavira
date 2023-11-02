@@ -18,11 +18,14 @@ const Navbar = () => {
                 {/* <li className='nav-link'>
                     <Link to="/produit">Produit</Link>
                 </li> */}
-                <li className='nav-link'>
+                {/* <li className='nav-link'>
                     <Link to="/commande">Commande</Link>
-                </li>
+                </li> */}
                 <li className='nav-link right'>
                     <Link to="/panier"><FontAwesomeIcon icon={faShoppingCart} />Panier</Link>
+                </li>
+                <li className='nav-link'>
+                    <Link to="/login">Se connecter</Link>
                 </li>
             </ul>
         </nav>

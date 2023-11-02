@@ -4,7 +4,6 @@ import Navbar from './Components/Navbar';
 import MyRoutes from './Components/MyRoutes';
 import { CartProvider } from './Components/CardContext';
 import 'react-toastify/dist/ReactToastify.css';
-import Cart from './Components/Cart';
 
 
 

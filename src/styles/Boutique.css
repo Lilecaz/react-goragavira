@@ -27,6 +27,8 @@ h1 {
     align-items: center;
 }
 
+
+
 .grid-item h2 {
     margin-bottom: 10px;
 }
@@ -74,6 +76,7 @@ button:hover {
 }
 
 .notification {
+    z-index: 999;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -83,6 +86,10 @@ button:hover {
     border-radius: 5px;
 }
 
+.error {
+    background-color: #dc3545;
+}
+
 .centered {
     margin-top: 15%;
     text-align: center;
@@ -90,4 +97,15 @@ button:hover {
 
 .fa-spinner {
     font-size: 3rem;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.filter-buttons button {
+    background-color: darksalmon;
 }
