@@ -1,0 +1,93 @@
+/* Boutique.css */
+
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-item h2 {
+    margin-bottom: 10px;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.cart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.centered {
+    margin-top: 15%;
+    text-align: center;
+}
+
+.fa-spinner {
+    font-size: 3rem;
+}

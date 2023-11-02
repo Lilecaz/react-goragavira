@@ -1,0 +1,37 @@
+body {
+    background-color: #c7cacb;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.cart-icon {
+    cursor: pointer;
+}
+.spinner {
+    border: 0.25rem solid rgba(0, 0, 0, 0.1);
+    border-top-color: #767676;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto;
+    font-size: 3rem; /* Increase the font size */
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

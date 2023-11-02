@@ -1,0 +1,56 @@
+/* Utilisez une police élégante et des couleurs neutres */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Centrez le titre et ajoutez un peu d'espace en dessous */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style pour le conteneur du produit */
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+/* Style pour l'image du produit */
+.product-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Style pour le bouton de suppression */
+.product-container button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.product-container button:hover {
+    background-color: #777;
+}
+
+.product-img {
+    text-align: center;
+}
+
+.product-rmv {
+    text-align: center;
+}
+
+.product-rmv button {
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+}

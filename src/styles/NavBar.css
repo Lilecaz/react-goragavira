@@ -1,0 +1,32 @@
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.nav-link {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+svg {
+    margin-right: 0.5rem;
+}
