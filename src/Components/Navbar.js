@@ -9,6 +9,7 @@ const Navbar = () => {
     return (
         <nav>
             <ul className='nav-links'>
+
                 <li className='nav-link'>
                     <FontAwesomeIcon icon={faHome} /><Link to="/">Accueil</Link>
                 </li>
