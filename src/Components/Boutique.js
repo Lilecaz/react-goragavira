@@ -114,7 +114,7 @@ const Boutique = () => {
                     <button onClick={handlePriceFilter}>Filtrer par prix</button>
                 </div>
             </div>
-            <div className='centered'>
+            <div>
                 <div className="grid-container">
                     {products.map(product => (
                         <div
