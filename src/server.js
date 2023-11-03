@@ -56,9 +56,11 @@ app.post('/validate-card', (req, res) => {
     });
 
     if (matchingCard) {
-        res.send(`La carte ${cardNumber} est valide et correspond à ${matchingCard.noms}`);
+        res.json({ cardType: cardType, cardNumber: cardNumber, valid: true });
+        // res.send(`La carte ${cardNumber} est valide et correspond à ${matchingCard.noms}`);
     } else {
-        res.send(`La carte ${cardNumber} est valide mais ne correspond à aucune carte enregistrée`);
+        res.json({ cardType: cardType, cardNumber: cardNumber, valid: false });
+        // res.send(`La carte ${cardNumber} est valide mais ne correspond à aucune carte enregistrée`);
     }
 });
 

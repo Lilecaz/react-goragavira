@@ -28,41 +28,45 @@ const Commande = () => {
 
     axios.post('http://localhost:5000/validate-card', creditCardInfo)
       .then(response => {
-        alert(`Merci, votre paiement par carte ${response.data}`);
-        const orderData = {
-          payment_method: 'card',
-          payment_method_title: 'Carte de crédit',
-          set_paid: true,
-          billing: {
-            first_name: creditCardInfo.firstName,
-            last_name: creditCardInfo.lastName,
-            address_1: creditCardInfo.address1,
-            address_2: creditCardInfo.address2,
-            city: creditCardInfo.city,
-            postcode: creditCardInfo.postalCode,
-            country: creditCardInfo.country,
-          },
-          line_items: cart.map((product) => ({
-            product_id: product.id,
-            quantity: product.quantity,
-          })),
-        };
-        axios.post('https://eisee-it.o3creative.fr/2023/groupe4/wp-json/wc/v3/orders', orderData, {
-          auth: {
-            username: 'ck_e30e489bfe9990edb792ce1ad7436620dff7cb29',
-            password: 'cs_82c3e0ccfb784baa8052e1edfbc438aa3f3724fc',
-          },
-        })
-          .then(response => {
-            alert('Commande envoyée avec succès');
-            clearCart();
-            navigate('/');
-
+        if (response.data.valid) {
+          alert(`Merci, votre paiement par carte ${response.data.cardNumber} avec type ${response.data.cardType} a été validé.`);
+          const orderData = {
+            payment_method: 'card',
+            payment_method_title: 'Carte de crédit',
+            set_paid: true,
+            billing: {
+              first_name: creditCardInfo.firstName,
+              last_name: creditCardInfo.lastName,
+              address_1: creditCardInfo.address1,
+              address_2: creditCardInfo.address2,
+              city: creditCardInfo.city,
+              postcode: creditCardInfo.postalCode,
+              country: creditCardInfo.country,
+            },
+            line_items: cart.map((product) => ({
+              product_id: product.id,
+              quantity: product.quantity,
+            })),
+          };
+          axios.post('https://eisee-it.o3creative.fr/2023/groupe4/wp-json/wc/v3/orders', orderData, {
+            auth: {
+              username: 'ck_e30e489bfe9990edb792ce1ad7436620dff7cb29',
+              password: 'cs_82c3e0ccfb784baa8052e1edfbc438aa3f3724fc',
+            },
           })
-          .catch(error => {
-            console.log(error);
-            alert('Erreur lors de l\'envoi de la commande');
-          });
+            .then(response => {
+              alert('Commande envoyée avec succès');
+              clearCart();
+              navigate('/');
+
+            })
+            .catch(error => {
+              console.log(error);
+              alert('Erreur lors de l\'envoi de la commande');
+            });
+        } else {
+          alert('Erreur lors de la validation de la carte');
+        }
       })
       .catch(error => {
         console.log(error);
