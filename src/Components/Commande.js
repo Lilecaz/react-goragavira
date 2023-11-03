@@ -14,7 +14,23 @@ const Commande = () => {
     ccv: '',
     name: '',
   });
+  const [billingInfo, setBillingInfo] = useState({
+    firstName: '',
+    lastName: '',
+    address1: '',
+    address2: '',
+    city: '',
+    postalCode: '',
+    country: '',
+  });
   const navigate = useNavigate();
+
+  const handleBillingInputChange = (event) => {
+    setBillingInfo({
+      ...billingInfo,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const handleValidateOrder = () => {
     if (!showForm) {
@@ -25,6 +41,7 @@ const Commande = () => {
   };
   const handleCreditCardSubmit = (event) => {
     event.preventDefault();
+    console.log(billingInfo);
 
     axios.post('http://localhost:5000/validate-card', creditCardInfo)
       .then(response => {
@@ -35,13 +52,13 @@ const Commande = () => {
             payment_method_title: 'Carte de crédit',
             set_paid: true,
             billing: {
-              first_name: creditCardInfo.firstName,
-              last_name: creditCardInfo.lastName,
-              address_1: creditCardInfo.address1,
-              address_2: creditCardInfo.address2,
-              city: creditCardInfo.city,
-              postcode: creditCardInfo.postalCode,
-              country: creditCardInfo.country,
+              first_name: billingInfo.firstName,
+              last_name: billingInfo.lastName,
+              address_1: billingInfo.address1,
+              address_2: billingInfo.address2,
+              city: billingInfo.city,
+              postcode: billingInfo.postalCode,
+              country: billingInfo.country,
             },
             line_items: cart.map((product) => ({
               product_id: product.id,
@@ -109,30 +126,31 @@ const Commande = () => {
           {showForm && (
             <form className="ship-form">
               <label htmlFor="firstName">Prénom :</label>
-              <input type="text" id="firstName" name="firstName" required />
+              <input type="text" id="firstName" name="firstName" onChange={handleBillingInputChange} required />
 
               <label htmlFor="lastName">Nom :</label>
-              <input type="text" id="lastName" name="lastName" required />
+              <input type="text" id="lastName" name="lastName" onChange={handleBillingInputChange} required />
 
               <label htmlFor="address1">Ligne adresse 1 :</label>
-              <input type="text" id="address1" name="address1" required />
+              <input type="text" id="address1" name="address1" onChange={handleBillingInputChange} required />
 
               <label htmlFor="address2">Ligne adresse 2 :</label>
-              <input type="text" id="address2" name="address2" />
+              <input type="text" id="address2" name="address2" onChange={handleBillingInputChange} />
 
               <label htmlFor="city">Ville :</label>
-              <input type="text" id="city" name="city" required />
+              <input type="text" id="city" name="city" onChange={handleBillingInputChange} required />
 
               <label htmlFor="postalCode">Code postal :</label>
-              <input type="text" id="postalCode" name="postalCode" required />
+              <input type="text" id="postalCode" name="postalCode" onChange={handleBillingInputChange} required />
 
               <label htmlFor="country">Pays :</label>
-              <input type="text" id="country" name="country" required />
+              <input type="text" id="country" name="country" onChange={handleBillingInputChange} required />
 
               <button type="button" onClick={() => setShowCreditCardForm(true)}>
                 Passer au paiement
               </button>
             </form>
+
           )}
           {showCreditCardForm && (
             <form onSubmit={handleCreditCardSubmit} className="card-form">
