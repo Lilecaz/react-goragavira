@@ -9,31 +9,35 @@ import { CartContext } from './CardContext';
 const Navbar = () => {
     const { isLoggedIn } = React.useContext(CartContext);
     return (
-        <nav>
-            <ul className='nav-links'>
-                <div className='nav-title'>
-                    <Link to="/">Govagavira</Link>
-                </div>
-                <li className='nav-link'>
-                    <FontAwesomeIcon icon={faHome} /><Link to="/">Accueil</Link>
-                </li>
-                <li className='nav-link'>
-                    <Link to="/boutique">Boutique</Link>
-                </li>
-                <li className='nav-link right'>
-                    <Link to="/panier"><FontAwesomeIcon icon={faShoppingCart} />Panier</Link>
-                </li>
-                {isLoggedIn ? (
+        <>
+            <div className='nav-title'>
+                <Link to="/">Govagavira</Link>
+            </div>
+            <nav>
+                <ul className='nav-links'>
+
                     <li className='nav-link'>
-                        <Link to="/login">Se deconnecter</Link>
+                        <FontAwesomeIcon icon={faHome} /><Link to="/">Accueil</Link>
                     </li>
-                ) : (
                     <li className='nav-link'>
-                        <Link to="/login">Se connecter</Link>
+                        <Link to="/boutique">Boutique</Link>
                     </li>
-                )}
-            </ul>
-        </nav>
+                    <li className='nav-link right'>
+                        <Link to="/panier"><FontAwesomeIcon icon={faShoppingCart} />Panier</Link>
+                    </li>
+                    {isLoggedIn ? (
+                        <li className='nav-link'>
+                            <Link to="/login">Se deconnecter</Link>
+                        </li>
+                    ) : (
+                        <li className='nav-link'>
+                            <Link to="/login">Se connecter</Link>
+                        </li>
+                    )}
+                </ul>
+            </nav>
+        </>
+
     );
 };
 
