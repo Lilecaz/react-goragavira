@@ -41,7 +41,6 @@ const Commande = () => {
   };
   const handleCreditCardSubmit = (event) => {
     event.preventDefault();
-    console.log(billingInfo);
 
     axios.post('http://localhost:5000/validate-card', creditCardInfo)
       .then(response => {

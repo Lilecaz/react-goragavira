@@ -4,7 +4,7 @@ import "../styles/Panier.css";
 import { Link } from "react-router-dom";
 
 function Panier() {
-  const { cart, removeFromCart } = useContext(CartContext);
+  const { cart, removeFromCart, isLoggedIn } = useContext(CartContext);
 
   const total = cart.reduce((sum, product) => sum + parseFloat(product.price), 0);
 
@@ -42,9 +42,15 @@ function Panier() {
       <div className="total">
         <h2>Total : {total.toFixed(2)} €</h2>
       </div>
-      <Link to="/commande">
-        <button>Aller à la commande</button>
-      </Link>
+      {isLoggedIn ? (
+        <Link to="/commande">
+          <button>Aller à la commande</button>
+        </Link>
+      ) : (
+        <Link to="/login">
+          <button>Se connecter</button>
+        </Link>
+      )}
     </div>
   );
 }
