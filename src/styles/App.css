@@ -19,6 +19,7 @@ header {
 .cart-icon {
     cursor: pointer;
 }
+
 .spinner {
     border: 0.25rem solid rgba(0, 0, 0, 0.1);
     border-top-color: #767676;
@@ -27,7 +28,15 @@ header {
     height: 2rem;
     animation: spin 1s ease-in-out infinite;
     margin: 0 auto;
-    font-size: 3rem; /* Increase the font size */
+    font-size: 3rem;
+    /* Increase the font size */
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes spin {
