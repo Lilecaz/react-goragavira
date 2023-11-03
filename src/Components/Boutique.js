@@ -114,31 +114,33 @@ const Boutique = () => {
                     <button onClick={handlePriceFilter}>Filtrer par prix</button>
                 </div>
             </div>
-
-            <div className="grid-container">
-                {products.map(product => (
-                    <div
-                        key={product.id}
-                        className={`grid-item ${product.categories.map(cat => `category-${cat.id}`).join(' ')}`}
-                        data-price={parseFloat(product.price) || 0} // Utilise 0 si le prix n'est pas valide
-                    >
-                        <Link to={`/produit?id=${product.id}`}>
-                            <h2>{product.name}</h2>
-                            <img src={product.images[0].woocommerce_thumbnail} alt={product.images[0].alt} />
-                        </Link>
-                        {product.stock_status === "instock" ? (
-                            <div>
-                                <p className='product-price'>Prix : {product.price} €</p>
-                                <button onClick={() => addToCart(product)}>
-                                    Ajouter au panier <FontAwesomeIcon icon={faShoppingCart} className='cart-icon' />
-                                </button>
-                            </div>
-                        ) : (
-                            <p>Rupture de stock</p>
-                        )}
-                    </div>
-                ))}
+            <div className='centered'>
+                <div className="grid-container">
+                    {products.map(product => (
+                        <div
+                            key={product.id}
+                            className={`grid-item ${product.categories.map(cat => `category-${cat.id}`).join(' ')}`}
+                            data-price={parseFloat(product.price) || 0} // Utilise 0 si le prix n'est pas valide
+                        >
+                            <Link to={`/produit?id=${product.id}`}>
+                                <h2>{product.name}</h2>
+                                <img src={product.images[0].woocommerce_thumbnail} alt={product.images[0].alt} />
+                            </Link>
+                            {product.stock_status === "instock" ? (
+                                <div>
+                                    <p className='product-price'>Prix : {product.price} €</p>
+                                    <button onClick={() => addToCart(product)}>
+                                        Ajouter au panier <FontAwesomeIcon icon={faShoppingCart} className='cart-icon' />
+                                    </button>
+                                </div>
+                            ) : (
+                                <p>Rupture de stock</p>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
+
         </div>
     );
 };

@@ -16,6 +16,7 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
+    text-align: center;
 }
 
 .grid-item {
@@ -88,10 +89,6 @@ button:hover {
     background-color: #dc3545;
 }
 
-.centered {
-    margin-top: 15%;
-    text-align: center;
-}
 
 .fa-spinner {
     font-size: 3rem;
