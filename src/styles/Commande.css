@@ -60,3 +60,31 @@
 .commande button:nth-last-child(1):hover {
   background-color: #2980b9;
 }
+
+.ship-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ship-form input {
+  margin: 10px 0;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.commande input[type="submit"] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.commande input[type="submit"]:hover {
+  background-color: #3498db;
+  color: white;
+}
