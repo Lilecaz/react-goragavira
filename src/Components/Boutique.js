@@ -98,7 +98,7 @@ const Boutique = () => {
     return (
         <div>
             {notification && <div className={isInCart ? 'notification error' : 'notification'}>{notification}</div>}
-            <Cart />
+            {/* <Cart /> */}
             <h1>Boutique</h1>
 
             <div className="filter-buttons">
