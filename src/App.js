@@ -10,11 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Navbar />
-      </header>
       <Wrapper>
         <CartProvider>
+          <header className="App-header">
+            <Navbar />
+          </header>
           <MyRoutes />
         </CartProvider>
       </Wrapper>
