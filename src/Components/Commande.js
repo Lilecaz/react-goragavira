@@ -59,6 +59,15 @@ const Commande = () => {
               postcode: billingInfo.postalCode,
               country: billingInfo.country,
             },
+            shipping: {
+              first_name: billingInfo.firstName,
+              last_name: billingInfo.lastName,
+              address_1: billingInfo.address1,
+              address_2: billingInfo.address2,
+              city: billingInfo.city,
+              postcode: billingInfo.postalCode,
+              country: billingInfo.country,
+            },
             line_items: cart.map((product) => ({
               product_id: product.id,
               quantity: product.quantity,
