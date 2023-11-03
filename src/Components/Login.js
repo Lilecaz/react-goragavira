@@ -22,6 +22,7 @@ const Login = () => {
             .then(response => {
                 localStorage.setItem('token', response.data.token);
                 setIsLoggedIn(true);
+                localStorage.setItem('username', response.data.user_display_name);
                 navigate('/boutique');
             })
             .catch(error => {
@@ -30,6 +31,7 @@ const Login = () => {
     };
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
         setIsLoggedIn(false);
     };
 

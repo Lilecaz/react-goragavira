@@ -8,6 +8,7 @@ import { CartContext } from './CardContext';
 
 const Navbar = () => {
     const { isLoggedIn } = React.useContext(CartContext);
+    const username = localStorage.getItem('username');
     return (
         <>
             <div className='nav-title'>
@@ -27,7 +28,7 @@ const Navbar = () => {
                     </li>
                     {isLoggedIn ? (
                         <li className='nav-link'>
-                            <Link to="/login">Se deconnecter</Link>
+                            <Link to="/login">{username}</Link>
                         </li>
                     ) : (
                         <li className='nav-link'>
