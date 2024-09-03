@@ -20,12 +20,12 @@ export const CartProvider = ({ children }) => {
     if (existingProduct) {
       setNotification(`Le produit : ${product.name} est déjà dans le panier`);
       setIsInCart(true);
-      setTimeout(() => setNotification(null), 5000);
+      setTimeout(() => setNotification(null), 5001);
     } else {
       setCart([...cart, product]);
       setNotification(`Le produit : ${product.name} a été ajouté au panier`);
       setIsInCart(false);
-      setTimeout(() => setNotification(null), 5000);
+      setTimeout(() => setNotification(null), 5001);
     }
   };
   const removeFromCart = (productToRemove) => {

@@ -42,7 +42,7 @@ const Commande = () => {
   const handleCreditCardSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:5000/validate-card', creditCardInfo)
+    axios.post('http://localhost:5001/validate-card', creditCardInfo)
       .then(response => {
         if (response.data.valid) {
           alert(`Merci, votre paiement par carte ${response.data.cardNumber} avec type ${response.data.cardType} a été validé.`);

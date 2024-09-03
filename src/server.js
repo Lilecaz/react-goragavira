@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://KILLEURWWOLF:OMEGA2002@cluster0.ahtvrop.mongodb.net/esiee";
+// const uri = "mongodb+srv://KILLEURWWOLF:OMEGA2002@cluster0.ahtvrop.mongodb.net/esiee";
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log("MongoDB Connected…");
-    })
-    .catch(err => console.log(err))
+// mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => {
+//         console.log("MongoDB Connected…");
+//     })
+//     .catch(err => console.log(err))
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -14,7 +14,7 @@ const valid = require('card-validator');
 
 app.use(cors());
 app.use(express.json());
-const port = 5000;
+const port = 5001;
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
